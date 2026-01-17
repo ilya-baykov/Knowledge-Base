@@ -1,0 +1,28 @@
+services:
+  web:
+    build: .
+    image: chat_web
+    container_name: chat_web
+    ports:
+      - "8000:82"          # хост:контейнер
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file:
+        - .env
+
+  db:
+    image: postgres:15
+    container_name: chat_db
+    env_file:
+      - .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdata:

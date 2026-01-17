@@ -1,0 +1,7 @@
+django-admin startproject web_app  - Создание проекта
+django-admin startapp home_page  -   Создание приложения
+
+
+
+
+python manage.py createsuperuser - создание суперпользователя
