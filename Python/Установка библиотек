@@ -1,0 +1,4 @@
+pip downloads <name_lib>
+
+# Перейти в нужную папку и выполнить команду:
+Get-ChildItem *.whl | ForEach-Object { pip install --no-index --find-links=. $_.FullName }
