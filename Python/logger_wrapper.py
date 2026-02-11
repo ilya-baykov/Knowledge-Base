@@ -29,7 +29,7 @@ from pathlib import Path
 
 from loguru import logger
 
-from src.config.constants import APP_NAME
+from src.config.constants.project import APP_NAME
 from src.config.paths import LOGS_PATH
 
 
@@ -93,7 +93,6 @@ class LoggerWrapper:
             rotation=self.DEFAULT_ROTATION,
             retention=self.DEFAULT_RETENTION,
             compression="zip",
-            compression_delay=self.DEFAULT_COMPRESSION_DELAY,
             level=self.DEFAULT_LEVEL_FILE,
             encoding="utf-8",
             enqueue=self.DEFAULT_ENQUEUE,
@@ -117,4 +116,4 @@ class LoggerWrapper:
 
 
 # Глобальный экземпляр для удобного импорта
-logger = LoggerWrapper()
+logger = LoggerWrapper()  # noqa
