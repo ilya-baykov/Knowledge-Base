@@ -2,8 +2,8 @@ poetry init                                       - инициализация p
 poetry add <package>                              - добавить зависимость
 poetry install                                    - установить зависимости из pyproject.toml / poetry.lock
 poetry run <command>                              - запустить команду внутри venv
-poetry shell                                      - войти в виртуальное окружение
-poetry env activate                                      - войти в виртуальное окружение
+poetry shell                                      - войти в виртуальное окружение ( устарело )
+poetry env activate                               - войти в виртуальное окружение
 poetry update                                     - обновить зависимости
 
 
