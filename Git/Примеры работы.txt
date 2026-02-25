@@ -1,15 +1,17 @@
-1. Начало работы
-bashgit clone https://github.com/company/project.git
+🚀 1. Начало работы
+git clone https://github.com/company/project.git
 cd project
 
 git checkout develop
 git pull origin develop          # всегда начинай со свежего develop
 
-2. Берёшь задачу → создаёшь ветку
-bashgit checkout -b feature/PROJ-123-user-auth
 
-3. Разрабатываешь → коммитишь
-bash# ... написал код ...
+🌿 2. Берёшь задачу → создаёшь ветку
+git checkout -b feature/PROJ-123-user-auth
+
+
+👨‍💻 3. Разрабатываешь → коммитишь
+# ... написал код ...
 git status                       # смотришь что изменилось
 git diff                         # смотришь конкретные изменения
 
@@ -21,8 +23,9 @@ git commit -m "feat: add user model with JWT support"
 # ... ещё поработал ...
 git commit -m "feat: add login endpoint"
 
-4. Параллельно коллега что-то влил — обновляешься
-bash# Делай это каждое утро или перед PR
+
+🔄 4. Параллельно коллега что-то влил — обновляешься
+# Делай это каждое утро или перед PR
 git checkout develop
 git pull origin develop
 git checkout feature/PROJ-123-user-auth
@@ -34,15 +37,16 @@ git add auth/models.py
 git rebase --continue            # продолжаем
 # или git rebase --abort         # отменить всё и вернуться как было
 
-5. Срочно надо переключиться — stash
-bashgit stash                        # прячем незаконченное
+
+📦 5. Срочно надо переключиться — stash
+git stash                        # прячем незаконченное
 git checkout hotfix/critical-bug
 # ... поправил ...
 git checkout feature/PROJ-123-user-auth
 git stash pop                    # достаём обратно
 
-6. Пушишь → открываешь PR
-bashgit push -u origin feature/PROJ-123-user-auth   # первый раз с -u
+⬆️ 6. Пушишь → открываешь PR
+git push -u origin feature/PROJ-123-user-auth   # первый раз с -u
 git push                                          # последующие разы
 
 # После rebase — нужен force push
@@ -51,14 +55,16 @@ git push --force-with-lease
 # Идёшь на GitHub/GitLab → открываешь PR: feature/... → develop
 # Пишешь описание, назначаешь ревьюеров
 
-7. Code Review — тебе оставили комментарии
-bash# Правишь код по комментариям
+
+👀 7. Code Review — тебе оставили комментарии
+# Правишь код по комментариям
 git add .
 git commit -m "fix: rename variable per review comment"
 git push                         # PR обновится автоматически
 
-8. PR принят — чистим за собой
-bash# На GitHub нажали "Squash and merge"
+
+✅ 8. PR принят — чистим за собой
+# На GitHub нажали "Squash and merge"
 # Локально:
 git checkout develop
 git pull origin develop          # подтягиваем смёрдженное
@@ -66,8 +72,9 @@ git pull origin develop          # подтягиваем смёрдженное
 git branch -d feature/PROJ-123-user-auth    # удаляем локальную ветку
 git push origin --delete feature/PROJ-123-user-auth  # удаляем на remote
 
-9. Срочный баг на проде — hotfix
-bashgit checkout main
+
+🚨 9. Срочный баг на проде — hotfix
+git checkout main
 git pull origin main
 git checkout -b hotfix/payment-crash
 
@@ -77,19 +84,20 @@ git push -u origin hotfix/payment-crash
 
 # PR: hotfix/... → main   (и отдельно → develop, чтобы фикс не потерялся)
 
-10. Что-то пошло не так — откат
-bashgit log --oneline                # смотришь историю
-
+⏪ 10. Что-то пошло не так — откат
+git log --oneline                # смотришь историю
 git revert abc1234               # отменить конкретный коммит (безопасно, создаёт новый коммит)
 
 git reset --soft HEAD~1          # отменить последний коммит, код остаётся в стейдже
 git reset --mixed HEAD~1         # отменить коммит, код остаётся в файлах
 git reset --hard HEAD~1          # ⚠️ удалить коммит И изменения — необратимо
 
-Правила которые спасут от проблем:
 
-main и develop — только через PR, никогда напрямую
-git pull каждое утро перед работой
-revert на shared-ветках, reset только на своих локальных
---force-with-lease вместо --force
-коммиты маленькие и с понятными сообщениями
+
+📌 Правила которые спасут от проблем:
+🔒 main и develop — только через PR, никогда напрямую
+⬇️ git pull каждое утро перед работой
+↩️ revert на shared-ветках, reset только на своих локальных
+🛡️ --force-with-lease вместо --force
+✍️ коммиты маленькие и с понятными сообщениями
+
