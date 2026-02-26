@@ -3,3 +3,6 @@ django-admin startapp home_page  -   Создание приложения
 
 
 python manage.py createsuperuser - создание суперпользователя
+
+
+python manage.py shell - консоль
