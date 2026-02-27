@@ -22,6 +22,32 @@
 ---
 
 ## Поля — от популярных к редким
+## Быстрая шпаргалка — какое поле выбрать
+
+| Задача                                     | Поле                                      |
+|--------------------------------------------|-------------------------------------------|
+| Строка, текст                              | `CharField`                               |
+| Email                                      | `EmailField`                              |
+| URL                                        | `URLField`                                |
+| Slug                                       | `SlugField`                               |
+| Целое число                                | `IntegerField`                            |
+| Деньги, точные числа                       | `DecimalField`                            |
+| Дата + время                               | `DateTimeField`                           |
+| Только дата                                | `DateField`                               |
+| Флаг да/нет                                | `BooleanField`                            |
+| FK → по ID                                 | `PrimaryKeyRelatedField`                  |
+| FK → по `__str__`                          | `StringRelatedField`                      |
+| FK → по произвольному полю                 | `SlugRelatedField`                        |
+| Вложенный объект                           | Вложенный сериализатор                    |
+| Вычисляемое поле                           | `SerializerMethodField`                   |
+| `@property` на модели                      | `ReadOnlyField`                           |
+| Список строк / чисел                       | `ListField(child=...)`                    |
+| Произвольный JSON                          | `JSONField`                               |
+| Загрузка файла                             | `FileField`                               |
+| Загрузка картинки                          | `ImageField`                              |
+| Автоподстановка (текущий юзер и т.п.)      | `HiddenField`                             |
+| UUID                                       | `UUIDField`                               |
+| Телефон / паттерн                          | `RegexField`                              |
 
 ---
 
@@ -390,29 +416,3 @@ full_name = serializers.CharField(read_only=True)
 
 ---
 
-## Быстрая шпаргалка — какое поле выбрать
-
-| Задача                                     | Поле                                      |
-|--------------------------------------------|-------------------------------------------|
-| Строка, текст                              | `CharField`                               |
-| Email                                      | `EmailField`                              |
-| URL                                        | `URLField`                                |
-| Slug                                       | `SlugField`                               |
-| Целое число                                | `IntegerField`                            |
-| Деньги, точные числа                       | `DecimalField`                            |
-| Дата + время                               | `DateTimeField`                           |
-| Только дата                                | `DateField`                               |
-| Флаг да/нет                                | `BooleanField`                            |
-| FK → по ID                                 | `PrimaryKeyRelatedField`                  |
-| FK → по `__str__`                          | `StringRelatedField`                      |
-| FK → по произвольному полю                 | `SlugRelatedField`                        |
-| Вложенный объект                           | Вложенный сериализатор                    |
-| Вычисляемое поле                           | `SerializerMethodField`                   |
-| `@property` на модели                      | `ReadOnlyField`                           |
-| Список строк / чисел                       | `ListField(child=...)`                    |
-| Произвольный JSON                          | `JSONField`                               |
-| Загрузка файла                             | `FileField`                               |
-| Загрузка картинки                          | `ImageField`                              |
-| Автоподстановка (текущий юзер и т.п.)      | `HiddenField`                             |
-| UUID                                       | `UUIDField`                               |
-| Телефон / паттерн                          | `RegexField`                              |
